@@ -1,8 +1,10 @@
 const Cryptocurrency = require("../models/cryptocurrency");
 
-const getCryptoStats = async (req,res) => {
+const getCryptoStats = async (req, res) => {
   const { coin } = req.query;
-
+  if (!coin) {
+    return res.status(400).json({ message: "Invalid query" });
+  }
   try {
     const data = await Cryptocurrency.findOne({ coin })
       .sort({ timestamp: -1 })
