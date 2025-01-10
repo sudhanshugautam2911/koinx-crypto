@@ -13,7 +13,7 @@ const cryptocurrencySchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    Change24h: {
+    change24h: {
         type: Number,
         required: true
     },
