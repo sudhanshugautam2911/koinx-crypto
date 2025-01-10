@@ -10,6 +10,10 @@ const PORT = process.env.PORT || 3000;
 
 connectDB();
 
+
+app.use("/stats", statsRoutes);
+app.use("/deviation", deviationRoutes);
+
 app.use("/", (req, res) => {
   res.send(`
       <html>
@@ -46,9 +50,6 @@ app.use("/", (req, res) => {
       </html>
     `);
 });
-
-app.use("/stats", statsRoutes);
-app.use("/deviation", deviationRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is listening to ${PORT} port.`);
